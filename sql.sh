@@ -6,7 +6,7 @@ echo -e  "\033[01;31m+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\033[01;31m"
 echo -e "\033[01;31m|  BEM VINDO AO SCRIPT DA GRAY ROOT SQL |\033[01;31m"
 echo -e "\033[01;31m+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\033[01;31m"
 
-cd /data/data/com.termux/files/home
+cd /data/data/com.termux/files/home/sqlmap
 
 echo -e "\033[01;33mInsira a Url do Site desejado:\033[01;33m"
 read url
